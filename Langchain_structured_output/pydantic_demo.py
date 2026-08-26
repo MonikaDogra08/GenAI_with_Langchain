@@ -27,3 +27,4 @@ print(student_dict["name"])
 
 # can make it json:
 student_json = student.model_dump_json()
+print(student_json)
