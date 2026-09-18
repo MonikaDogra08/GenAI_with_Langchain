@@ -1,0 +1,13 @@
+
+
+*******Documnet loaders:********
+Are the components in langchain used to data from various sorces into a standardized format -->usually as Documnet objects.
+WHich can then be used for chunking,embedding,retrieval and generation.
+variouse sorces can be pdf,txt files,DB,S3 etc.
+
+Syntax:
+Documnet(
+    page_content ="The actual text content",
+    metadata = {"source": "filename.pdf",.....}
+
+)

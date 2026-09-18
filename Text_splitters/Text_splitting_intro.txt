@@ -1,0 +1,28 @@
+Text Splitters
+Text splitting is the process of breaking large chunks of text (such as articles, PDFs, or HTML pages) into smaller, manageable pieces.
+This makes it easier for a Language Model (LLM) to process the text effectively and often improves the quality of its responses.
+
+Why Use Text Splitting?
+LLM Context Limits
+
+Every LLM has a maximum context length (the number of tokens it can handle at once).
+
+For example, if an LLM can only process 50,000 tokens and you pass more than that, it won’t work effectively.
+
+Splitting text into smaller chunks ensures the model can handle the input without exceeding its limits.
+
+>Better Semantic Meaning with Embeddings
+
+When generating embeddings (vector representations of text), passing huge documents at once can dilute meaning.
+
+Splitting text into smaller chunks allows the embedding model to capture semantic meaning more accurately.
+
+Smaller chunks → clearer, more precise vectors.
+
+>Improved Semantic Search
+
+In semantic search, queries are compared against stored embeddings.
+
+If embeddings are created from smaller chunks, the search results are more relevant.
+
+Searching across chunked vectors is more effective than trying to match against one giant embedding of the whole document.

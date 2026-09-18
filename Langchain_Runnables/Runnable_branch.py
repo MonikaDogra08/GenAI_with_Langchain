@@ -2,7 +2,6 @@
 # topic--->prompt(ask to generate a summary about the topic)--->LLm--->parser--> one condiiton if summary is>500 words -->ask llm to short that summary with <500
 # else is summary is already<500 words--->then print as it is.
 from langchain_huggingface import ChatHuggingFace, HuggingFacePipeline
-from langchain_openai import ChatOpenAI
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from dotenv import load_dotenv
