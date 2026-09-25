@@ -1,8 +1,11 @@
-# Process:
-# fetch any youtube video's transcript---> can be done using various ways:
-#  --> Can use langchai's YT loader 
-#  ---> Using youtube's API--> hit Api and get the transcript(in this we use this)
-# split text using textspitter---> then generate embeddings-->store in vector store--->create/use retriever-->create a prompt(augmentation)-->response
+# Details of this project:
+# Fetch YouTube Transcript :This can be done in multiple ways:Using LangChain’s YouTube loader or Using YouTube’s API (in our case, we call the API to fetch the transcript)
+#1) Text Preprocessing:Split the transcript into manageable chunks using a text splitter.
+#2) Generate Embeddings :Convert each text chunk into vector embeddings.
+#3) Store in Vector Database : Save the embeddings in a vector store (e.g., FAISS).
+#4) Create Retriever :Build a retriever to efficiently search and fetch relevant chunks from the vector store.
+#5) Prompt Augmentation :Combine the retrieved chunks with a carefully designed prompt.
+#6) Generate Response : Pass the augmented prompt to the model to produce the final answer.
 
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api._errors import TranscriptsDisabled
@@ -14,18 +17,19 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from sklearn.metrics.pairwise import cosine_similarity
 from langchain_huggingface import ChatHuggingFace , HuggingFacePipeline
 
-video_id = "Gfr50f6ZBvo"
+video_id = "Gfr50f6ZBvo" 
 
 try:
+    print("Hi")
     # Create an instance of the API
     api = YouTubeTranscriptApi()
-    fetched_transcript = api.fetch(video_id, languages=["en"])
+    fetched_transcript = api.fetch(video_id, languages=["en"])  # for hindi can use: "hi"
 
     # Convert to list of dicts (same style as get_transcript)
     transcript_list = fetched_transcript.to_raw_data()
 
     # Print first few entries to check
-    # print(transcript_list[:5])
+    print(transcript_list[:5])
 
     # Flatten to plain text if needed
     transcript = " ".join(chunk["text"] for chunk in transcript_list)
