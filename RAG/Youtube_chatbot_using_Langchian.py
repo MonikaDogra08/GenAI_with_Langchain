@@ -107,7 +107,7 @@ def format_docs(retrieved_docs):
 # 1st part:
 parallel_chain = RunnableParallel({
     'context': retriever | RunnableLambda(format_docs),    # question going into retriever --->retriever will do all the sementic search and fetch the relavent doc for asked question---> and process them into a combined contextdoc
-    'question': RunnablePassthrough()                     # in paralll it need query as well 
+    'question': RunnablePassthrough()                     # in parallel it need query as well 
 })
 
 # print(parallel_chain.invoke('who is Demis') ) # will give --> context and question
